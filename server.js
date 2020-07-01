@@ -57,6 +57,7 @@
     });
 
     app.use(express.static(__dirname));
+    app.use(express.static(path.join(__dirname, 'Cesium-3D-Wind')));
 
     function getRemoteUrlFromParam(req) {
         var remoteUrl = req.params[0];
@@ -138,9 +139,9 @@
 
     var server = app.listen(argv.port, argv.public ? undefined : 'localhost', function() {
         if (argv.public) {
-            console.log('Cesium development server running publicly.  Connect to http://localhost:%d/demo', server.address().port);
+            console.log('Cesium development server running publicly.  Connect to http://localhost:%d/', server.address().port);
         } else {
-            console.log('Cesium development server running locally.  Connect to http://localhost:%d/demo', server.address().port);
+            console.log('Cesium development server running locally.  Connect to http://localhost:%d/', server.address().port);
         }
     });
 
